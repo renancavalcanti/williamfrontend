@@ -1,0 +1,30 @@
+{% extends "main.html" %}
+
+{% block content %}
+    <h1 class="text-center">Task</h1>
+    <h2 class="text-center">Create Task</h2>
+
+       
+        <div class="text-center" >
+            <div class="card">
+                <div class="card-body">
+
+                
+                <form method="POST" action="{% url 'Create_Task' %}" style="display: inline;">
+                    {% csrf_token %}
+                    <p class="card-text">Assigned to</p>
+                    <input type="text" name="emailtoSend" class="form-control" required>
+                    
+                    <p class="card-text">Description</p>
+                    <input type="text" name="Description" class="form-control" required>
+                    <button type="submit" class="btn btn-success" >CreateTask</button>
+                </form>
+               
+
+                </div>
+            </div>
+        </div>
+        
+   
+
+{% endblock %}

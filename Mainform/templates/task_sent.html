@@ -1,0 +1,37 @@
+<h1 class="text-center">Task</h1>
+<h2 class="text-center">Assigned Tasks</h2>
+{% block content %}
+   
+    <div class="text-center" >
+        <div class="card">
+            <div class="card-body">
+                
+<h1 class="text-center">Task</h1>
+<h2 class="text-center">Assigned Tasks</h2>
+
+<div class="text-center">
+    {% for task in tasks %}
+        <div class="card my-3">
+            <div class="card-body">
+                <h5 class="card-text">{{ task.createdByName }}</h5>
+                <h5 class="card-text ">{{ task.description }}</h5>
+                <h5 class="card-text">{{ task.assignedToName }}</h5>
+             
+            </div>
+        </div>
+    {% empty %}
+        <p>No tasks assigned.</p>
+    {% endfor %}
+</div>
+
+            
+            
+           
+
+            </div>
+        </div>
+    </div>
+    
+
+
+{% endblock %}
