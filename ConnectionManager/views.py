@@ -15,7 +15,7 @@ def get_login(request):
             'password': Password
         }
        
-        response=requests.post(url='http://localhost:5000/v0/users/login',json=data)
+        response=requests.post(url='https://seal-app-9z3i8.ondigitalocean.app/v0/users/login',json=data)
         if response.status_code==200:
          
             login_data=response.json()
@@ -45,7 +45,7 @@ def get_user_data(request):
         'x-access-token':token
     }
     if  response.status_code == 200:
-        response=requests.get("http://127.0.0.1:5000/v0/users/all",headers=header)
+        response=requests.get("https://seal-app-9z3i8.ondigitalocean.app/v0/users/all",headers=header)
         user_data = response.json().get("user",[])
         return JsonResponse(user_data)
     else:
@@ -65,7 +65,7 @@ def CreateAccount(request):
             'email':Email,
             'password':Password}
         
-        response=requests.post(url='http://localhost:5000/v0/users/signup',json=data)
+        response=requests.post(url='https://seal-app-9z3i8.ondigitalocean.app/v0/users/signup',json=data)
         return redirect('login')
     
     if request.method=='GET':

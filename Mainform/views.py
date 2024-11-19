@@ -58,7 +58,7 @@ def Create_Task(request):
         }
 
 
-    response = requests.post('http://localhost:5000/Tasks/', headers=Headers, json=task_data)
+    response = requests.post('https://seal-app-9z3i8.ondigitalocean.app/Tasks/', headers=Headers, json=task_data)
 
     if response.status_code == 200:
         response_data = response.json()
@@ -81,7 +81,7 @@ def Task_Assigned(request):
         Headers = {
             'x-access-token': token
         }
-        response=requests.get('http://localhost:5000/Tasks/assignedto/',headers=Headers)
+        response=requests.get('https://seal-app-9z3i8.ondigitalocean.app/Tasks/assignedto/',headers=Headers)
        
         if response.status_code == 200:
             
@@ -104,7 +104,7 @@ def task_sent(request):
         Headers = {
             'x-access-token': token
         }
-        response=requests.get('http://localhost:5000/Tasks/createdby/',headers=Headers)
+        response=requests.get('https://seal-app-9z3i8.ondigitalocean.app/Tasks/createdby/',headers=Headers)
        
         if response.status_code == 200:
             
@@ -125,7 +125,7 @@ def task_updated(request, taskUid):
             'x-access-token': token
         }
        
-        responsed=requests.patch(f'http://localhost:5000/Tasks/{taskUid}',headers=Headers)
+        responsed=requests.patch(f'https://seal-app-9z3i8.ondigitalocean.app/Tasks/{taskUid}',headers=Headers)
        
 
         if responsed.status_code == 200:
@@ -144,7 +144,7 @@ def task_deleted(request, taskUid):
         Headers = {
             'x-access-token': token
         }
-        response=requests.delete(f'http://localhost:5000/v1/Tasks/{taskUid}',headers=Headers,)
+        response=requests.delete(f'https://seal-app-9z3i8.ondigitalocean.app/v1/Tasks/{taskUid}',headers=Headers,)
         if response.status_code == 200:
             return redirect('task_assigned') 
         else:
